@@ -1,0 +1,90 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quote</title>
+
+    <style>
+
+        .widget {
+            padding: 5px 5px ;
+            color: #000000;
+            text-align: center;
+                max-width: 95%;
+            margin: auto;
+            font-variant-caps: petite-caps;
+            font-size: 2em;
+
+        }
+
+        div {
+             width: 95%;
+             min-height: 100px;
+
+            background:
+                linear-gradient(to right, black 4px, transparent 4px) 0 0,
+                linear-gradient(to right, black 4px, transparent 4px) 0 100%,
+                linear-gradient(to left, black 4px, transparent 4px) 100% 0,
+                linear-gradient(to left, black 4px, transparent 4px) 100% 100%,
+                linear-gradient(to bottom, black 4px, transparent 4px) 0 0,
+                linear-gradient(to bottom, black 4px, transparent 4px) 100% 0,
+                linear-gradient(to top, black 4px, transparent 4px) 0 100%,
+                linear-gradient(to top, black 4px, transparent 4px) 100% 100%;
+
+            background-repeat: no-repeat;
+            background-size: 20px 20px;
+}
+
+     
+    </style>
+</head>
+<body>
+
+    <div class="widget" id="widget"></div>
+
+
+<script>
+
+quotes=[
+"Never be so kind you forget to be clever. Never be so clever you forget to be kind.",
+"And I don't know why, but with you I'd dance in a storm in my best dress. Fearless!",
+"I want auroras and sad prose, I want to watch wisteria grow right over my bare feet.",
+"All love ever does is break and burn, and end.",
+"I once believed love would be black and white, but it's golden Golden.",
+"They say all's well that ends well but I'm in a new hell every time you double-cross my mind.",
+"'Cause baby, I could build a castle out of all the bricks they threw at me
+And every day is like a battle, but every night with us is like a dream!",
+"Sometimes giving up is the strong thing, sometimes to run is the brave thing.",
+"To kiss in cars and downtown bars was all we needed
+You drew stars around my scars",
+"Meet me in the pouring rain kiss me on the sidewalk take away the pain
+'Cause I see, sparks fly whenever you smile",
+"I knew you tried to change the ending Peter losing Wendy",
+"Sometimes walking out is the one thing that will find you the right thing.",
+"Just between us, did the love affair maim you too?",
+];
+
+const INTERVAL = 86400000;
+
+function dispalyQuote(){
+
+    document.getElementById('widget').innerHTML =quotes[0];
+    quotes.forEach((quote, i) => {
+        setTimeout(() => {
+            document.getElementById('widget').innerHTML =quote;
+        }, i * INTERVAL);  
+    });
+    }
+
+    function dispalyWidget() {
+        dispalyQuote();
+        setTimeout(dispalyWidget, quotes.length*INTERVAL);
+    }
+    dispalyWidget()
+
+</script>
+
+</body>
+</html>
